@@ -1,0 +1,14 @@
+fitur
+al - qur'an
+-translate
+-audio
+-bookmark
+jadwal sholat --skip
+do'a
+tutorial
+-web shortcut creator
+about
+loading animation
+
+pengaturan
+-dark mode

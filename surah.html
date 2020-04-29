@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Document</title>
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
+
+    <link rel="stylesheet" href="assets/style.css">
+</head>
+
+<body class="bg-light">
+    <header class="header-quran bg-info text-light m-0">
+        <span class="judul">Surah</span><span class="ikon"><span class="text text-light"><i
+                    class="fas fa-stop-circle fa-lg"></i></span></span>
+    </header>
+    <main class="">
+        <div class="list-audio" style="display: none;">
+
+        </div>
+
+        <ul id="list-ayah">
+        </ul>
+    </main>
+    <div class="loading">
+        <div class="d-flex justify-content-center">
+            <div class="spinner-border text-success" style="width: 3rem; height: 3rem;" role="status">
+                <span class="sr-only">Loading...</span>
+            </div>
+        </div>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+
+    <script src="./assets/storage.js"></script>
+    <script src="./assets/script.js"></script>
+    <script>
+        surahPage();
+    </script>
+</body>
+
+</html>
