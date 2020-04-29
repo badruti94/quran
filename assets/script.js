@@ -71,7 +71,7 @@ const doaPage = () => {
 const quranPage = () => {
     //Quran.html
     console.log('a');
-    $.get('http://api.alquran.cloud/v1/surah', (data) => {
+    $.get('https://api.alquran.cloud/v1/surah', (data) => {
         console.log(data.data);
         isiDaftar(data.data);
         $('.loading').css('display','none');
