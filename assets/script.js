@@ -70,9 +70,7 @@ const doaPage = () => {
 
 const quranPage = () => {
     //Quran.html
-    console.log('a');
     $.get('https://api.alquran.cloud/v1/surah', (data) => {
-        console.log(data.data);
         isiDaftar(data.data);
         $('.loading').css('display','none');
     });
@@ -113,7 +111,7 @@ const surahPage = () => {
         no_s = url.substr(url.indexOf('?') + 1);
     }
     
-    const url_api = `http://api.alquran.cloud/v1/surah/${no_s}/editions/ar.alafasy,en.transliteration,id.indonesian`;
+    const url_api = `https://api.alquran.cloud/v1/surah/${no_s}/editions/ar.alafasy,en.transliteration,id.indonesian`;
     let surah = [];
     let jmlAyah;
 
