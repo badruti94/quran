@@ -1,9 +1,9 @@
-
 @font-face {
     font-family: "mequran";
     src: url('./me_quran_2.ttf');
     font-weight: bold;
 }
+
 * {
     padding: 0;
     margin: 0;
@@ -14,7 +14,7 @@
     background-image: url("image/greek-vase.png");
 }
 
-.full-screen{
+.full-screen {
     font-size: 2em;
     position: absolute;
     top: 1em;
@@ -79,7 +79,7 @@ footer a {
     width: 2.5em;
     height: 2.5em;
     margin-top: 0;
-    
+
     border: 2px solid #8FD19E;
     top: 0;
     text-align: center;
@@ -106,7 +106,8 @@ footer a {
     display: flex;
     border-bottom: 0.02em solid #6C757D;
 }
-.list-item:last-child{
+
+.list-item:last-child {
     border-bottom: none;
 }
 
@@ -115,9 +116,10 @@ footer a {
     text-align: center;
 }
 
-.item-icon .no-ayat, .item-icon i{
+.item-icon .no-ayat,
+.item-icon i {
     margin-top: 1.4em;
-    
+
 }
 
 .item-teks {
@@ -133,7 +135,7 @@ footer a {
     margin-bottom: 1em;
 }
 
-.no-ayat{
+.no-ayat {
     border: 2px solid #218838;
     width: 2em;
     text-align: center;
@@ -145,29 +147,32 @@ footer a {
 /* Jadwal Shalat */
 
 
-.card-body .kata{
+.card-body .kata {
     display: inline;
     flex-basis: 80%;
 }
-.card-body .jam{
+
+.card-body .jam {
     display: inline;
     flex-basis: 20%;
 }
 
-.card-body .kata, .card-body .jam{
+.card-body .kata,
+.card-body .jam {
     font-size: 1.2em;
 }
-.card{
+
+.card {
     height: 4em;
 }
 
 
 /* About */
-.about{
+.about {
     max-width: 95%;
 }
 
-.about-judul{
+.about-judul {
     margin-top: 0.5em;
     height: 100%;
     margin-left: 1em;
@@ -175,10 +180,25 @@ footer a {
     font-size: 1.2em;
 }
 
-.about-ikon{
+.about-ikon {
     line-height: 2em;
 }
 
-.loading{
+.loading {
     margin-top: 50%;
+}
+
+.toast{
+    position: fixed;
+    top: 50%;
+}
+
+
+@media only screen and (min-width: 1000px) {
+    .menu{
+        margin-top: 15%;
+    }
+    .loading{
+        margin-top: 15%;
+    }
 }

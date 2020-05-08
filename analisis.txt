@@ -8,7 +8,10 @@ do'a
 tutorial
 -web shortcut creator
 about
-loading animation
 
-pengaturan
--dark mode
+
+bug yang belum
+-audio kadang susah keluar
+
+next fitur
+-tajwid

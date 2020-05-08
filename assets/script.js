@@ -72,7 +72,7 @@ const quranPage = () => {
     //Quran.html
     $.get('https://api.alquran.cloud/v1/surah', (data) => {
         isiDaftar(data.data);
-        $('.loading').css('display','none');
+        $('.loading').css('display', 'none');
     });
 
 
@@ -93,7 +93,7 @@ const quranPage = () => {
         });
     };
 
-    $('.fa-bookmark').click((e)=>{
+    $('.fa-bookmark').click((e) => {
         e.preventDefault();
         document.location.href = 'bookmark.html';
     });
@@ -104,13 +104,13 @@ const surahPage = () => {
     const url = window.location.href;
     let no_s = '';
     let no_a;
-    if(url.search('#') != -1){
-        no_s = url.substring(url.indexOf('?')+1, url.indexOf('#'));
+    if (url.search('#') != -1) {
+        no_s = url.substring(url.indexOf('?') + 1, url.indexOf('#'));
         no_a = url.substr(url.indexOf('#') + 1);
-    }else{
+    } else {
         no_s = url.substr(url.indexOf('?') + 1);
     }
-    
+
     const url_api = `https://api.alquran.cloud/v1/surah/${no_s}/editions/ar.alafasy,en.transliteration,id.indonesian`;
     let surah = [];
     let jmlAyah;
@@ -120,7 +120,7 @@ const surahPage = () => {
     $.get(url_api, (data) => {
         isiData(data.data);
         jmlAyah = data.data[0].numberOfAyahs;
-        $('.loading').css('display','none');
+        $('.loading').css('display', 'none');
         $('.judul').text(`Surah ${data.data[0].englishName}`);
     });
 
@@ -197,15 +197,27 @@ const surahPage = () => {
             methodBookmark(e)
         });
 
-        
 
-        if(url.search('#') != -1){
+
+        if (url.search('#') != -1) {
             document.getElementById(no_a).scrollIntoView();
         }
     }
 
 
+    
+
+    const methodPlay = (e) => {
+        //tampilAudio();
+        playAudio($(e.target).attr('data-id'));
+    };
+
+    let sedangDimainkan = false;
+    
     const playAudio = (no) => {
+        if(sedangDimainkan){
+            stopAudio();
+        }
         const el = `<audio id="surahPlayer" src="${surah[no-1].audio}" type="audio/mp3" controls="controls" class="audioAyah audioAyah${no}"></audio>`;
         $('.list-audio').append(el);
 
@@ -219,28 +231,33 @@ const surahPage = () => {
             });
         }
 
-    };
+        if(no == jmlAyah){
+            sedangDimainkan = true;
+        }
 
-    const methodPlay = (e) => {
-        //tampilAudio();
-        playAudio($(e.target).attr('data-id'));
     };
 
     const methodBookmark = (e) => {
         const bookmarkObj = {
-            surah : no_s,
-            ayat : $(e.target).attr('data-id')
+            surah: no_s,
+            ayat: $(e.target).attr('data-id')
         };
         addData(bookmarkObj);
+        $('.toast').toast('show');
     };
 
     $('.fa-stop-circle').click(() => {
+        stopAudio();
+    });
+
+    const stopAudio = () => {
         const audioAyah = document.querySelectorAll('.audioAyah');
         audioAyah.forEach((audAy) => {
             audAy.pause();
             audAy.currentTime = 0;
         });
-    });
+        sedangDimainkan = true;
+    };
 
     const tampilAudio = () => {
         i = 1;
@@ -255,19 +272,24 @@ const surahPage = () => {
 
 const bookmarkPage = () => {
     const data = readData();
-
-
-
-
-    let i = 1;
+    let i = 0;
     data.forEach((d) => {
-        const html = `<li id="${i}" data-surah="${d.surah}" data-ayat="${d.ayat}" class="bookmark list-group-item list-group-item-success mt-3">${d.surah}:${d.ayat} </li>`;
+        const html = `<li class="bookmark list-group-item d-flex justify-content-between align-items-center mt-3" data-surah="${d.surah}" data-ayat="${d.ayat}" index="${i}" id="${i}">
+        ${d.surah}:${d.ayat}
+        <span class="badge badge-danger badge-pill">X</span>
+    </li`;
         $('#list-bookmark').append(html);
         i++;
     })
 
     $('.bookmark').click((e) => {
         document.location.href = `surah.html?${$(e.target).attr('data-surah')}#${$(e.target).attr('data-ayat')}`;
+    });
+    $('.bookmark span').click((e) => {
+        e.stopPropagation();
+        const id = $(e.target.parentElement).attr('index');
+        deleteData(id);
+        $('li').remove(`#${id}`);
     });
 
 
