@@ -1,6 +1,6 @@
 @font-face {
     font-family: "mequran";
-    src: url('./me_quran_2.ttf');
+    src: url('./me_quran.ttf');
     font-weight: bold;
 }
 
@@ -130,7 +130,7 @@ footer a {
     font-family: 'mequran';
     text-align: right;
     margin-top: 1.2em;
-    font-size: 1.2em;
+    font-size: 1.7em;
     line-height: 2em;
     margin-bottom: 1em;
 }
