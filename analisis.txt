@@ -8,10 +8,18 @@ do'a
 tutorial
 -web shortcut creator
 about
+loading animation
 
+pengaturan
+-dark mode
 
 bug yang belum
--audio kadang susah keluar
+-tampilan pc//
+-bookmark tidak ada hapus//
+-tidak ada toast bookmark disimpan//
+-audio kadang susah keluar//
+-audio akan tumpang tindih jika tidak dihentikan dulu//
+-beri user manual
 
 next fitur
 -tajwid
